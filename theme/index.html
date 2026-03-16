@@ -1,54 +1,34 @@
 <!doctype html>
-<html>
+<html lang="{{ lang }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+        {% if resume.basics and resume.basics.name %}
+        <meta name="author" content="{{ resume.basics.name }}">
+        {% endif %}
+        {% if resume.basics and resume.basics.summary %}
+        <meta name="description" content="{{ resume.basics.summary | striptags }}">
+        {% endif %}
         <title>{{ resume.basics.name | d('') }}</title>
         <style>
             {% include 'style.css' %}
         </style>
     </head>
     <body>
-        <div id="resume">
-            <div class="section">
-                {% include 'views/basics.html' %}
-            </div>
-            <div class="section">
-                {% include 'views/work.html' %}
-            </div>
-            <div class="section">
-                {% include 'views/skills.html' %}
-            </div>
-            <div class="section">
-                {% include 'views/projects.html' %}
-            </div>
-            <div class="section">
-                {% include 'views/certifications.html' %}
-            </div>
-            <div class="section">
-                {% include 'views/awards.html' %}
-            </div>
-            <div class="section">
-                {% include 'views/education.html' %}
-            </div>
-            <div class="section">
-                {% include 'views/languages.html' %}
-            </div>
-            <div class="section">
-                {% include 'views/profiles.html' %}
-            </div>
-            <div class="section">
-                {% include 'views/publications.html' %}
-            </div>
-            <div class="section">
-                {% include 'views/volunteer.html' %}
-            </div>
-            <div class="section">
-                {% include 'views/interests.html' %}
-            </div>
-            <div class="section">
-                {% include 'views/references.html' %}
-            </div>
-        </div>
+        <main id="resume">
+            {% include 'views/basics.html' %}
+            {% include 'views/work.html' %}
+            {% include 'views/skills.html' %}
+            {% include 'views/projects.html' %}
+            {% include 'views/certifications.html' %}
+            {% include 'views/awards.html' %}
+            {% include 'views/education.html' %}
+            {% include 'views/languages.html' %}
+            {% include 'views/profiles.html' %}
+            {% include 'views/publications.html' %}
+            {% include 'views/volunteer.html' %}
+            {% include 'views/interests.html' %}
+            {% include 'views/references.html' %}
+        </main>
     </body>
 </html>

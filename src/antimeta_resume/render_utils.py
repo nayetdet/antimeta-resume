@@ -7,7 +7,7 @@ from yarl import URL
 from antimeta_resume.settings import settings
 
 def format_date(date: Any) -> str:
-    default_value: str = "o momento"
+    default_value: str = "presente"
     if not date:
         return default_value
 

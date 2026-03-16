@@ -1,8 +1,8 @@
 {% from 'partials/item.html' import render_item with context %}
 
 {% if resume.work %}
-<section id="work">
-    <h2>Experiência Profissional</h2>
+<section id="work" class="resume-section" aria-labelledby="work-heading">
+    <h2 id="work-heading">Experiência Profissional</h2>
     {% for item in resume.work %}
     {% call render_item(
         title=item.name,
@@ -24,7 +24,7 @@
     {% if item.highlights %}
     <ul class="highlights">
         {% for highlight in item.highlights %}
-        <li>{{ highlight | safe }}</li>
+        <li><span class="list-bullet">• </span><span class="list-text">{{ highlight | safe }}</span></li>
         {% endfor %}
     </ul>
     {% endif %}

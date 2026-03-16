@@ -1,10 +1,8 @@
-{% from 'partials/item-header.html' import render_item_header with context %}
-
 {% if resume.basics and resume.basics.profiles %}
 {% set profiles = resume.basics.profiles | selectattr('network') | selectattr('username') | selectattr('url') | list %}
 {% if profiles %}
 <section id="profiles">
-    <h2>Perfis</h2>
+    <h2>Perfis Profissionais</h2>
     <div class="item">
         {% for profile_row in profiles | batch(2, none) %}
         <div class="row">
@@ -12,11 +10,12 @@
             <div class="col">
                 {% if profile %}
                 <div class="profile-details">
-                    <div class="title-subtitle">
-                        {{ render_item_header(title=profile.network, subtitle=profile.username) }}
+                    <div class="profile-line">
+                        <span class="profile-network">{{ profile.network }}:</span>
+                        <span class="url">{{ format_url(profile.url) }}</span>
                     </div>
-                    <div class="url">
-                        {{ format_url(profile.url) }}
+                    <div class="profile-username">
+                        {{ profile.username }}
                     </div>
                 </div>
                 {% endif %}

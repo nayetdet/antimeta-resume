@@ -1,5 +1,5 @@
 {% macro render_item_header(title=None, subtitle=None) -%}
-<div class="item-header">
+<header class="item-header">
     {% if title %}
     <div class="item-header-title">
         {{ title }}
@@ -10,5 +10,5 @@
         {{ subtitle }}
     </div>
     {% endif %}
-</div>
+</header>
 {%- endmacro %}

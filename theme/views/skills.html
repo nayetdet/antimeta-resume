@@ -1,16 +1,17 @@
 {% if resume.skills %}
-<section id="skills">
-    <h2>Habilidades</h2>
+<section id="skills" class="resume-section" aria-labelledby="skills-heading">
+    <h2 id="skills-heading">Habilidades</h2>
     <ul class="item">
         {% for skill in resume.skills %}
         <li>
+            <span class="list-bullet">• </span>
             {% if skill.name %}
             {% if skill.level %}
-            <strong>{{ skill.name }}</strong> ({{ skill.level }}){% if skill.keywords %}: {{ skill.keywords | map('safe') | join(', ') }}{% endif %}
+            <span class="list-text"><strong>{{ skill.name }}</strong> ({{ skill.level }}){% if skill.keywords %}: {{ skill.keywords | map('safe') | join(', ') }}{% endif %}</span>
             {% elif skill.keywords %}
-            <strong>{{ skill.name }}</strong>: {{ skill.keywords | map('safe') | join(', ') }}
+            <span class="list-text"><strong>{{ skill.name }}</strong>: {{ skill.keywords | map('safe') | join(', ') }}</span>
             {% else %}
-            <strong>{{ skill.name }}</strong>
+            <span class="list-text"><strong>{{ skill.name }}</strong></span>
             {% endif %}
             {% endif %}
         </li>

@@ -12,7 +12,8 @@ def render_pdf(resume: ResumeSchema) -> bytes:
         "resume": resume.model_dump(mode="python", by_alias=True),
         "format_date": format_date,
         "format_url": format_url,
-        "format_mail": format_mail
+        "format_mail": format_mail,
+        "lang": settings.locale.replace("_", "-")
     }
 
     with TemporaryDirectory() as tmpdir:
@@ -25,7 +26,14 @@ def render_pdf(resume: ResumeSchema) -> bytes:
 
         html_path, pdf_path = output_directory / "index.html", output_directory / "index.pdf"
         html: HTML = HTML(filename=str(html_path), base_url=str(output_directory))
-        html.write_pdf(target=str(pdf_path), stylesheets=[CSS(string="@page { size: A4 }")])
+        html.write_pdf(
+            target=str(pdf_path),
+            stylesheets=[CSS(string="@page { size: A4 }")],
+            pdf_variant="pdf/ua-1",
+            pdf_tags=True,
+            custom_metadata=True
+        )
+
         return pdf_path.read_bytes()
 
 def render_pdf_from_json(json_path: Path) -> bytes:

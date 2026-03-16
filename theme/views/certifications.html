@@ -1,8 +1,8 @@
 {% from 'partials/item.html' import render_item with context %}
 
 {% if resume.certificates %}
-<section id="certifications">
-    <h2>Certificações</h2>
+<section id="certifications" class="resume-section" aria-labelledby="certifications-heading">
+    <h2 id="certifications-heading">Certificações</h2>
     {% for certificate in resume.certificates %}
     {% call render_item(
         title=certificate.name,

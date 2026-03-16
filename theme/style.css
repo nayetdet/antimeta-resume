@@ -1,20 +1,22 @@
 /* Template level */
 h2,
 section,
-.section {
+.resume-section {
     box-sizing: border-box;
 }
 
 body {
     font-family: Georgia, serif;
+    font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "hlig" 0;
+    font-variant-ligatures: none;
     font-size: 11px;
     margin: 24px 48px;
 }
 
 h1 {
     font-size: 26px;
-    text-align: center;
     margin: 5px;
+    text-align: center;
 }
 
 img {
@@ -22,8 +24,8 @@ img {
 }
 
 h2 {
-    border-width: 1px;
     border-style: none none solid none;
+    border-width: 1px;
     clear: both;
     display: block;
     margin: 10px 0 2.5px 0;
@@ -42,16 +44,18 @@ section::after {
     display: block;
 }
 
-.section {
+#resume {
+    width: 100%;
+}
+
+.resume-section {
     clear: both;
     display: block;
     width: 100%;
 }
 
-.section::after {
-    clear: both;
-    content: "";
-    display: block;
+.resume-section + .resume-section {
+    margin-top: 12px;
 }
 
 ul {
@@ -59,67 +63,84 @@ ul {
     padding-left: 20px;
 }
 
+ul.item,
+ul.highlights {
+    list-style: none;
+}
+
 a {
-    text-decoration: none;
     color: black;
+    text-decoration: none;
 }
 
 .url-link {
     display: inline-block;
     font-family: inherit;
     font-size: 0.92em;
+    hyphens: none;
     letter-spacing: 0;
     line-height: 1.15;
+    overflow-wrap: anywhere;
     text-decoration: none;
-    hyphens: none;
-    overflow-wrap: normal;
-    white-space: nowrap;
-    word-break: normal;
+    white-space: normal;
+    word-break: break-word;
 }
 
 .text-link {
     color: inherit;
 }
 
+.list-bullet,
+.list-text {
+    display: inline;
+}
+
 .item {
     margin-top: 8px;
 }
 
-.item>.item-header {
-    float: left;
-    display: block;
+.item-topline {
+    align-items: flex-start;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
 }
 
-.item>.item-header>.item-header-title {
+.item-header {
+    display: block;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.item-header > .item-header-title {
     font-weight: bold;
 }
 
-.item>.item-header>.item-header-subtitle {
+.item-header > .item-header-subtitle {
     font-style: italic;
 }
 
-.item>.item-details {
-    float: right;
+.item-details {
+    display: block;
+    flex: 0 0 auto;
+    max-width: 42%;
     text-align: right;
 }
 
-.item>.item-details>.item-details-title {
+.item-details > .item-details-title {
     font-weight: bold;
 }
 
-.item>.item-details>.url {
+.item-details > .url {
     font-size: 9px;
     line-height: 1.15;
     max-width: 250px;
 }
 
-.item>.item-details>.url .url-link {
+.item-details > .url .url-link {
     max-width: 100%;
     text-align: right;
     vertical-align: top;
-    overflow-wrap: anywhere;
-    white-space: normal;
-    word-break: break-word;
 }
 
 .clearfix {
@@ -136,12 +157,9 @@ a {
 }
 
 .external-url-line {
-    margin-top: 2px;
-}
-
-.external-url-line {
     font-size: 9px;
     line-height: 1.15;
+    margin-top: 2px;
 }
 
 .external-url-line .url-link {
@@ -171,6 +189,10 @@ a {
 
 /* Section specific */
 /* basics */
+.resume-header {
+    display: block;
+}
+
 .basics-image-wrap {
     margin-bottom: 6px;
 }
@@ -184,13 +206,21 @@ a {
 }
 
 .vertical-separator {
-    text-align: center;
     padding: 0 10px;
+    text-align: center;
 }
 
 .vertical-separator:not(:first-child) {
     border-left: 1px solid #000;
     text-align: center;
+}
+
+.contact[role="list"] {
+    display: block;
+}
+
+#basics address {
+    font-style: normal;
 }
 
 #basics .address {
@@ -231,36 +261,33 @@ a {
 
 #profiles .profile-details {
     box-sizing: border-box;
-    display: table;
-    table-layout: fixed;
+    display: block;
+}
+
+#profiles .profile-line {
+    align-items: flex-start;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
     width: 100%;
 }
 
-#profiles .title-subtitle {
-    box-sizing: border-box;
-    display: table-cell;
-    padding-right: 12px;
-    vertical-align: top;
-    width: 42%;
-}
-
-#profiles .title-subtitle .item-header-title {
+#profiles .profile-network {
     font-weight: bold;
+    min-width: 0;
 }
 
-#profiles .title-subtitle .item-header-subtitle {
+#profiles .profile-username {
     font-style: italic;
+    margin-top: 1px;
 }
 
 #profiles .url {
-    box-sizing: border-box;
-    display: table-cell;
+    flex: 0 0 auto;
     font-size: 9px;
     line-height: 1.15;
-    padding-left: 6px;
+    max-width: 58%;
     text-align: right;
-    vertical-align: top;
-    width: 58%;
 }
 
 #profiles .url .url-link {
@@ -268,32 +295,28 @@ a {
     max-width: 100%;
     text-align: right;
     vertical-align: top;
-    overflow-wrap: anywhere;
-    white-space: normal;
-    word-break: break-word;
 }
 
 #projects .project-item {
     margin-top: 10px;
 }
 
-#projects .project-title-row {
-    display: table;
+#projects .project-header {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
     line-height: 1.2;
-    table-layout: fixed;
     width: 100%;
 }
 
 #projects .project-head-main {
-    display: table-cell;
-    padding-right: 12px;
-    vertical-align: top;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 #projects .project-head-date {
-    display: table-cell;
+    flex: 0 0 auto;
     text-align: right;
-    vertical-align: top;
     white-space: nowrap;
     width: 28%;
 }
@@ -361,22 +384,21 @@ a {
 }
 
 #publications .publication-head {
-    display: table;
-    table-layout: fixed;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
     width: 100%;
 }
 
 #publications .publication-title {
-    display: table-cell;
+    flex: 1 1 auto;
     font-weight: bold;
-    padding-right: 12px;
-    vertical-align: top;
+    min-width: 0;
 }
 
 #publications .publication-date {
-    display: table-cell;
+    flex: 0 0 auto;
     text-align: right;
-    vertical-align: top;
     white-space: nowrap;
     width: 24%;
 }
@@ -406,35 +428,39 @@ a {
 /* Set some print settings. */
 @media print {
     @page {
-        size: portrait;
         margin: 10mm 25mm;
+        size: portrait;
     }
+
     .resume {
-        max-width: 100%;
-        border: 0px;
-        background: #fff;
-        box-shadow: none;
         -webkit-box-shadow: none;
+        background: #fff;
+        border: 0px;
+        box-shadow: none;
+        max-width: 100%;
     }
+
     body,
     html,
     .resume {
         margin: 0px;
         padding: 0px;
     }
+
     .controls {
         display: none;
     }
-    .section {
+
+    .resume-section {
         margin-bottom: 12px;
     }
 
-    .section h2 {
-        page-break-after: avoid; 
+    .resume-section h2 {
+        page-break-after: avoid;
     }
 
     .item,
-    .item-header,
+    .item-topline,
     .item-details,
     .summary,
     .entry-meta,
@@ -447,8 +473,8 @@ a {
     #publications .publication-item,
     #publications .publication-head,
     #projects .project-item,
-    #projects .project-title-row {
+    #projects .project-header {
         break-inside: avoid;
-        page-break-inside: avoid; 
+        page-break-inside: avoid;
     }
 }

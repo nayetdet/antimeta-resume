@@ -1,12 +1,12 @@
 {% if resume.projects %}
-<section id="projects">
-    <h2>Projetos</h2>
+<section id="projects" class="resume-section" aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Projetos</h2>
     {% for item in resume.projects %}
     {% if item.name or item.description or item.highlights or item.keywords or item.startDate or item.endDate or item.url or item.roles or item.entity or item.type %}
     {% set project_url = item.url or '' %}
     {% set project_title = item.name or item.entity or item.type or 'Projeto' %}
-    <div class="project-item">
-        <div class="project-title-row">
+    <article class="project-item">
+        <header class="project-header">
             <div class="project-head-main">
                 <span class="project-title">{{ project_title }}</span>
             </div>
@@ -19,7 +19,7 @@
                 {% endif %}
             </div>
             {% endif %}
-        </div>
+        </header>
         {% if item.entity or item.roles or item.type %}
         <div class="project-meta">
             {% if item.entity %}
@@ -50,16 +50,16 @@
         {% if item.keywords %}
         <div class="keywords-line">
             Tecnologias: {{ item.keywords | join(', ') }}
-        </div>
+            </div>
         {% endif %}
         {% if item.highlights %}
         <ul class="highlights">
             {% for highlight in item.highlights %}
-            <li>{{ highlight }}</li>
+            <li><span class="list-bullet">• </span><span class="list-text">{{ highlight }}</span></li>
             {% endfor %}
         </ul>
         {% endif %}
-    </div>
+    </article>
     {% endif %}
     {% endfor %}
 </section>

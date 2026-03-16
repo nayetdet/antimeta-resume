@@ -9,9 +9,15 @@
     <div class="date">
         {{ format_date(date) }}
     </div>
-    {% elif start_date %}
+    {% elif start_date or end_date %}
     <div class="date">
+        {% if start_date and end_date and start_date != end_date %}
         {{ format_date(start_date) }} — {{ format_date(end_date) }}
+        {% elif start_date and not end_date %}
+        {{ format_date(start_date) }} — {{ format_date(end_date) }}
+        {% else %}
+        {{ format_date(start_date or end_date) }}
+        {% endif %}
     </div>
     {% endif %}
     {% if main_url and url %}
