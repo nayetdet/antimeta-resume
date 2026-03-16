@@ -1,6 +1,5 @@
 from typing import Optional
-from pydantic import AliasChoices
-from pydantic import Field
+from pydantic import Field, AliasChoices
 from antimeta_resume.schemas.base_schema import ResumeBaseModel
 
 class PublicationSchema(ResumeBaseModel):

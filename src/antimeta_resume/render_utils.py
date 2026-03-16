@@ -24,13 +24,6 @@ def format_date(date: Any) -> str:
         return default_value
     return babel_format_date(dt, format="MMM y", locale=settings.locale)
 
-def format_mail(mail: Any) -> Markup:
-    if not mail:
-        return Markup()
-
-    text: str = escape(str(mail).strip())
-    return Markup(f'<a href="mailto:{text}">{text}</a>')
-
 def format_url(url: Any) -> Markup:
     if not url:
         return Markup()
@@ -38,3 +31,10 @@ def format_url(url: Any) -> Markup:
     u: URL = URL(url if "://" in str(url) else f"https://{url}")
     url_label: str = f"{u.host or ''}{u.path}".removeprefix("www.").rstrip("/").replace("/", "/<wbr>").replace(".", ".<wbr>")
     return Markup(f'<a class="url-link" href="{escape(url)}">{url_label}</a>')
+
+def format_mail(mail: Any) -> Markup:
+    if not mail:
+        return Markup()
+
+    text: str = escape(str(mail).strip())
+    return Markup(f'<a href="mailto:{text}">{text}</a>')

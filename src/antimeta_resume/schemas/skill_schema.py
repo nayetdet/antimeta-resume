@@ -1,5 +1,4 @@
-from typing import List
-from typing import Optional
+from typing import List, Optional
 from pydantic import Field
 from antimeta_resume.schemas.base_schema import ResumeBaseModel
 from antimeta_resume.schemas.keyword_schema import KeywordSchema

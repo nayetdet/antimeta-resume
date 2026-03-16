@@ -1,9 +1,8 @@
-from typing import List
-from typing import Optional
+from typing import List, Optional
 from pydantic import Field
 from antimeta_resume.schemas.award_schema import AwardSchema
-from antimeta_resume.schemas.basics_schema import BasicsSchema
 from antimeta_resume.schemas.base_schema import ResumeBaseModel
+from antimeta_resume.schemas.basics_schema import BasicsSchema
 from antimeta_resume.schemas.certificate_schema import CertificateSchema
 from antimeta_resume.schemas.education_schema import EducationSchema
 from antimeta_resume.schemas.interest_schema import InterestSchema

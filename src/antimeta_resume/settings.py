@@ -9,4 +9,4 @@ class Settings(BaseSettings):
     root: Path = Path(__file__).resolve().parents[2]
     theme: Path = root / "theme"
 
-settings = Settings()
+settings: Settings = Settings()

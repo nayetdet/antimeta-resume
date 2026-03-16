@@ -1,7 +1,5 @@
-from typing import List
-from typing import Optional
-from pydantic import AliasChoices
-from pydantic import Field
+from typing import List, Optional
+from pydantic import Field, AliasChoices
 from antimeta_resume.schemas.base_schema import ResumeBaseModel
 from antimeta_resume.schemas.course_schema import CourseSchema
 
