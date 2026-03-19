@@ -8,8 +8,8 @@ class BasicsSchema(ResumeBaseModel):
     name: str
     label: Optional[str] = None
     image: Optional[str] = Field(default=None, validation_alias=AliasChoices("image", "picture"))
-    email: Optional[str] = None
-    phone: Optional[str] = None
+    email: str
+    phone: str
     url: Optional[str] = Field(default=None, validation_alias=AliasChoices("url", "website"))
     summary: Optional[str] = None
     location: BasicsLocationSchema = Field(default_factory=BasicsLocationSchema)
