@@ -6,7 +6,7 @@ from antimeta_resume.schemas.basics_profile_schema import BasicsProfileSchema
 
 class BasicsSchema(ResumeBaseModel):
     name: str
-    label: Optional[str] = None
+    label: str
     image: Optional[str] = Field(default=None, validation_alias=AliasChoices("image", "picture"))
     email: str
     phone: str
