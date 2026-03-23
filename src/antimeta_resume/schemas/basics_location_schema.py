@@ -5,6 +5,6 @@ from antimeta_resume.schemas.base_schema import ResumeBaseModel
 class BasicsLocationSchema(ResumeBaseModel):
     address: Optional[str] = None
     postal_code: Optional[str] = Field(default=None, alias="postalCode")
-    city: Optional[str] = None
+    city: str
     country_code: Optional[str] = Field(default=None, alias="countryCode")
     region: Optional[str] = None
