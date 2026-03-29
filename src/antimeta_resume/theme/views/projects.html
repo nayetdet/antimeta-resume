@@ -1,6 +1,6 @@
 {% if resume.projects %}
 <section id="projects" class="resume-section" aria-labelledby="projects-heading">
-    <h2 id="projects-heading">Projetos</h2>
+    <h2 id="projects-heading">Projetos Relevantes</h2>
     {% for item in resume.projects %}
     {% if item.name or item.description or item.highlights or item.keywords or item.startDate or item.endDate or item.url or item.roles or item.entity or item.type %}
     {% set project_url = item.url or '' %}
