@@ -29,6 +29,7 @@ where = ["src"]
 "share/softworker/theme" = [
     "theme/*.html",
     "theme/*.css",
+    "theme/*.json",
 ]
 "share/softworker/theme/partials" = [
     "theme/partials/*.html",

@@ -2,7 +2,7 @@
 
 {% if resume.awards %}
 <section id="awards" class="resume-section" aria-labelledby="awards-heading">
-    <h2 id="awards-heading">Prêmios &amp; Reconhecimentos</h2>
+    <h2 id="awards-heading">{{ i18n.sections.awards }}</h2>
     {% for award in resume.awards %}
     {% call render_item(
         title=award.title,

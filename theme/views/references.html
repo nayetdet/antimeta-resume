@@ -2,7 +2,7 @@
 
 {% if resume.references %}
 <section id="references" class="resume-section" aria-labelledby="references-heading">
-    <h2 id="references-heading">Referências</h2>
+    <h2 id="references-heading">{{ i18n.sections.references }}</h2>
     {% for item in resume.references %}
     {% call render_item(
         title=item.name

@@ -1,0 +1,50 @@
+{
+  "pt_BR": {
+    "babel_locale": "pt_BR",
+    "sections": {
+      "awards": "Prêmios & Reconhecimentos",
+      "certifications": "Certificações",
+      "education": "Formação Acadêmica",
+      "interests": "Interesses",
+      "languages": "Idiomas",
+      "profiles": "Perfis Profissionais",
+      "projects": "Projetos Relevantes",
+      "publications": "Publicações",
+      "references": "Referências",
+      "skills": "Habilidades",
+      "summary": "Resumo",
+      "volunteer": "Voluntariado",
+      "work": "Experiência Profissional"
+    },
+    "contact_info": "Informações de contato",
+    "courses": "Cursos",
+    "education_in": "em",
+    "present": "presente",
+    "project": "Projeto",
+    "technologies": "Tecnologias"
+  },
+  "en_US": {
+    "babel_locale": "en_US",
+    "sections": {
+      "awards": "Awards & Recognition",
+      "certifications": "Certifications",
+      "education": "Education",
+      "interests": "Interests",
+      "languages": "Languages",
+      "profiles": "Professional Profiles",
+      "projects": "Relevant Projects",
+      "publications": "Publications",
+      "references": "References",
+      "skills": "Skills",
+      "summary": "Summary",
+      "volunteer": "Volunteer Work",
+      "work": "Work Experience"
+    },
+    "contact_info": "Contact information",
+    "courses": "Courses",
+    "education_in": "in",
+    "present": "present",
+    "project": "Project",
+    "technologies": "Technologies"
+  }
+}

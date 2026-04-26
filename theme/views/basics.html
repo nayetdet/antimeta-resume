@@ -8,7 +8,7 @@
         </div>
         {% endif %}
         <h1 id="resume-name">{{ resume.basics.name | d('') }}</h1>
-        <div class="contact centered" role="list" aria-label="Informações de contato">
+        <div class="contact centered" role="list" aria-label="{{ i18n.contact_info }}">
             {% if resume.basics.label %}
             <span class="vertical-separator" role="listitem">{{ resume.basics.label }}</span>
             {% endif %}

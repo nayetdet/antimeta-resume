@@ -2,9 +2,9 @@
 
 {% if resume.education %}
 <section id="education">
-    <h2>Formação Acadêmica</h2>
+    <h2>{{ i18n.sections.education }}</h2>
     {% for item in resume.education %}
-    {% set education_subtitle = item.studyType ~ (' em ' ~ item.area if item.area else '') %}
+    {% set education_subtitle = item.studyType ~ (' ' ~ i18n.education_in ~ ' ' ~ item.area if item.area else '') %}
     {% call render_item(
         title=item.institution,
         subtitle=education_subtitle,
@@ -19,7 +19,7 @@
     {% endif %}
     {% if item.courses %}
     <div class="keywords-line">
-        <strong>Cursos:</strong> {{ item.courses | join(', ') }}
+        <strong>{{ i18n.courses }}:</strong> {{ item.courses | join(', ') }}
     </div>
     {% endif %}
     {% endcall %}

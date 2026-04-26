@@ -2,7 +2,7 @@
 {% set profiles = resume.basics.profiles | selectattr('network') | selectattr('username') | selectattr('url') | list %}
 {% if profiles %}
 <section id="profiles">
-    <h2>Perfis Profissionais</h2>
+    <h2>{{ i18n.sections.profiles }}</h2>
     <div class="item">
         {% for profile_row in profiles | batch(2, none) %}
         <div class="row">

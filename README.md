@@ -1,4 +1,4 @@
-# Softworker
+# SoftWorker
 
 Biblioteca Python para gerar currículos ATS-friendly em PDF a partir de dados estruturados em JSON.
 
@@ -8,7 +8,7 @@ Em termos simples: você preenche os dados do currículo em um arquivo estrutura
 
 Primeira página do PDF gerado com o exemplo do projeto:
 
-![Primeira página do currículo gerado](docs/images/sample-resume.png)
+![Primeira página do currículo gerado](docs/examples/images/resume.png)
 
 ## O que o projeto faz
 
@@ -43,6 +43,12 @@ Se quiser escolher o nome ou o caminho de saída:
 uv run python -m softworker docs/sample-resume.json /tmp/currículo.pdf
 ```
 
+Se quiser renderizar o tema em outro idioma:
+
+```bash
+uv run python -m softworker docs/sample-resume.json /tmp/resume.pdf --resume-language en_US
+```
+
 ## O que você precisa ter
 
 - Python 3.13+
@@ -72,10 +78,11 @@ import json
 from pathlib import Path
 from typing import Dict, Any
 from softworker import render_pdf_from_dict
+from softworker.enums import ResumeLanguage
 
-resume_path, output_path = Path("docs/sample-resume.json"), Path("resume.pdf")
+resume_path, output_path = Path("docs/examples/resume.json"), Path("resume.pdf")
 resume: Dict[str, Any] = json.loads(resume_path.read_text(encoding="utf-8"))
-pdf: bytes = render_pdf_from_dict(resume)
+pdf: bytes = render_pdf_from_dict(resume, resume_language=ResumeLanguage.PT_BR)
 output_path.write_bytes(pdf)
 ```
 

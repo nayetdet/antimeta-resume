@@ -1,10 +1,11 @@
 import sysconfig
 from pathlib import Path
 from pydantic_settings import BaseSettings
+from softworker.enums import ResumeLanguage
 
 class Settings(BaseSettings):
     # General
-    LOCALE: str = "pt_BR"
+    DEFAULT_LANGUAGE: ResumeLanguage = ResumeLanguage.PT_BR
 
     # Paths
     ROOT_PATH: Path = Path(__file__).resolve().parents[2]

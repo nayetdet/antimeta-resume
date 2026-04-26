@@ -2,7 +2,7 @@
 
 {% if resume.work %}
 <section id="work" class="resume-section" aria-labelledby="work-heading">
-    <h2 id="work-heading">Experiência Profissional</h2>
+    <h2 id="work-heading">{{ i18n.sections.work }}</h2>
     {% for item in resume.work %}
     {% call render_item(
         title=item.name,

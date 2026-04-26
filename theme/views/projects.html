@@ -1,10 +1,10 @@
 {% if resume.projects %}
 <section id="projects" class="resume-section" aria-labelledby="projects-heading">
-    <h2 id="projects-heading">Projetos Relevantes</h2>
+    <h2 id="projects-heading">{{ i18n.sections.projects }}</h2>
     {% for item in resume.projects %}
     {% if item.name or item.description or item.highlights or item.keywords or item.startDate or item.endDate or item.url or item.roles or item.entity or item.type %}
     {% set project_url = item.url or '' %}
-    {% set project_title = item.name or item.entity or item.type or 'Projeto' %}
+    {% set project_title = item.name or item.entity or item.type or i18n.project %}
     <article class="project-item">
         <header class="project-header">
             <div class="project-head-main">
@@ -49,7 +49,7 @@
         {% endif %}
         {% if item.keywords %}
         <div class="keywords-line">
-            Tecnologias: {{ item.keywords | join(', ') }}
+            {{ i18n.technologies }}: {{ item.keywords | join(', ') }}
             </div>
         {% endif %}
         {% if item.highlights %}
